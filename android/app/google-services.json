@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "837513617894",
+    "project_id": "toolbox-kainato",
+    "storage_bucket": "toolbox-kainato.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837513617894:android:5df09f036237e9ba5a7627",
+        "android_client_info": {
+          "package_name": "com.example.toolbox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7AhVnrwJhm2xXkmAvHZ2Qx9nwEL4eJGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,10 +8,10 @@ final ThemeData theme = ThemeData(
   fontFamily: GoogleFonts.quicksand().fontFamily,
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.pink,
-    elevation: 0,
-    iconTheme: const IconThemeData(color: Colors.black),
+    elevation: 3,
+    iconTheme: const IconThemeData(color: Colors.white),
     titleTextStyle: TextStyle(
-      color: Colors.black,
+      color: Colors.white,
       fontSize: 20,
       fontWeight: FontWeight.bold,
       fontFamily: GoogleFonts.quicksand().fontFamily,

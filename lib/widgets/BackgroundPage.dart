@@ -33,11 +33,26 @@ class _BackgroundPageState extends State<BackgroundPage> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
-        crossAxisAlignment: crossAxisAlignment,
-        mainAxisAlignment: mainAxisAlignment,
-        mainAxisSize: mainAxisSize,
-        children: children,
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(
+          20,
+          20,
+          20,
+          20 + MediaQuery.of(context).padding.bottom,
+        ),
+        child: Column(
+          crossAxisAlignment: crossAxisAlignment,
+          mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
+          children: children,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        tooltip: 'Increment',
+        label: const Text('Increment'),
+        icon: const Icon(Icons.add),
+        isExtended: false,
+        onPressed: () {},
       ),
     );
   }
