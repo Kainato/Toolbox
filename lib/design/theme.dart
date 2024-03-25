@@ -29,6 +29,7 @@ final ThemeData theme = ThemeData(
     elevation: 1.0,
   ),
   listTileTheme: const ListTileThemeData(
+    visualDensity: VisualDensity.comfortable,
     tileColor: Colors.white,
     selectedTileColor: Colors.grey,
     iconColor: Colors.black,

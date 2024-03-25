@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:toolbox/design/dark_theme.dart';
 import 'package:toolbox/firebase_options.dart';
 import 'package:toolbox/design/theme.dart';
-import 'package:toolbox/pages/HomePage.dart';
+import 'package:toolbox/pages/DailyPhrasesPage.dart';
+// import 'package:toolbox/pages/HomePage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MainApp extends StatelessWidget {
       theme: theme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.light,
-      home: const HomePage(),
+      home: const DailyPhrasesPage(),
     );
   }
 }
