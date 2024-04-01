@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/DrawerItens.dart';
+import 'package:toolbox/enums/DrawerItens.dart';
+import 'package:toolbox/widgets/components/TransparentDivider.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,12 @@ class HomePage extends StatelessWidget {
       children: [
         Text(
           'Hello World',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        TransparentDivider(),
       ],
     );
   }
