@@ -10,6 +10,7 @@ class BackgroundPage extends StatefulWidget {
   final MainAxisAlignment mainAxisAlignment;
   final MainAxisSize mainAxisSize;
   final DrawerItens currentPage;
+  final void Function()? onFABPressed;
 
   const BackgroundPage({
     super.key,
@@ -18,7 +19,8 @@ class BackgroundPage extends StatefulWidget {
     required this.currentPage,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.mainAxisAlignment = MainAxisAlignment.start,
-    this.mainAxisSize = MainAxisSize.max,
+    this.mainAxisSize = MainAxisSize.max, 
+    this.onFABPressed,
   });
 
   @override
@@ -32,6 +34,7 @@ class _BackgroundPageState extends State<BackgroundPage> {
   MainAxisAlignment get mainAxisAlignment => widget.mainAxisAlignment;
   MainAxisSize get mainAxisSize => widget.mainAxisSize;
   DrawerItens get currentPage => widget.currentPage;
+  void Function()? get onFABPressed => widget.onFABPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +57,15 @@ class _BackgroundPageState extends State<BackgroundPage> {
           children: children,
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        tooltip: 'Increment',
-        label: const Text('Increment'),
-        icon: const Icon(Icons.add),
-        isExtended: false,
-        onPressed: () {},
+      floatingActionButton: Visibility(
+        visible: onFABPressed != null,
+        child: FloatingActionButton.extended(
+          tooltip: 'Increment',
+          label: const Text('Increment'),
+          icon: const Icon(Icons.add),
+          isExtended: false,
+          onPressed: onFABPressed,
+        ),
       ),
     );
   }

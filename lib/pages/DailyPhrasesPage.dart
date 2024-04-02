@@ -11,6 +11,7 @@ class DailyPhrasesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<PhrasesModel> data = [];
     return BackgroundPage(
       currentPage: DrawerItens.phrases,
       title: 'Daily Phrases Page',
@@ -26,7 +27,7 @@ class DailyPhrasesPage extends StatelessWidget {
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Text('Loading');
               } else {
-                List<PhrasesModel> data = snapshot.data.docs
+                data = snapshot.data.docs
                     .map<PhrasesModel>(
                         (doc) => PhrasesModel.fromJson(doc.data()))
                     .toList();
@@ -34,8 +35,18 @@ class DailyPhrasesPage extends StatelessWidget {
                   itemCount: data.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      title: Text(data[index].description),
-                      subtitle: Text(data[index].author.toString()),
+                      title: Text(
+                        data[index].description,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                        '${data[index].author.toString()}\n${data[index].id.toString()}',
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () =>
+                            FirebaseService().deletePhrase(data[index].id),
+                      ),
                     );
                   },
                 );
@@ -44,6 +55,13 @@ class DailyPhrasesPage extends StatelessWidget {
           ),
         )
       ],
+      onFABPressed: () {
+        FirebaseService().addPhrase(
+          author: 'test',
+          description: 'super test ${data.length.toString()}',
+          id: data.length + 1,
+        );
+      },
     );
   }
 }

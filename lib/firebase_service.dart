@@ -5,12 +5,35 @@ class FirebaseService {
       FirebaseFirestore.instance.collection('phrases');
 
   Stream<QuerySnapshot<Object?>> getPhrases() {
-    return phrasesCollection.snapshots();
+    return phrasesCollection.orderBy('createdAt').snapshots();
   }
 
-  Future<void> addPhrase(String description) async {
-    await phrasesCollection.add({
-      'description': description,
-    });
+  Future<void> addPhrase({
+    required String author,
+    required String description,
+    required int id,
+  }) async {
+    await phrasesCollection.doc(id.toString()).set(
+      {
+        'author': author,
+        'description': description,
+        'createdAt': FieldValue.serverTimestamp(),
+        'id': id,
+      },
+    );
+    // await phrasesCollection.add(
+    //   {
+    //     'author': author,
+    //     'description': description,
+    //     // 'id': id,
+    //     // 'id': '$id-${phrasesCollection.doc().id}',
+    //     'id': phrasesCollection.doc().id,
+    //     'createdAt': FieldValue.serverTimestamp(),
+    //   },
+    // );
+  }
+
+  Future<void> deletePhrase(int id) async {
+    await phrasesCollection.doc(id.toString()).delete();
   }
 }
