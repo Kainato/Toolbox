@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
 import 'package:toolbox/classes/PhrasesModel.dart';
 import 'package:toolbox/firebase_service.dart';
+import 'package:toolbox/functions/NavigatorPush.dart';
+import 'package:toolbox/pages/Phrases/CreateDailyPhrasesPage.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 
 class DailyPhrasesPage extends StatelessWidget {
@@ -17,15 +19,33 @@ class DailyPhrasesPage extends StatelessWidget {
       title: 'Daily Phrases Page',
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
+      onFABPressed: () {
+        ToolBoxNavigator.push(
+          context,
+          const CreateDailyPhrasesPage(),
+        );
+      },
       children: [
         Flexible(
           child: StreamBuilder<QuerySnapshot<Object?>>(
             stream: FirebaseService().getPhrases(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               if (snapshot.hasError) {
-                return const Text('Something went wrong');
+                return const Center(
+                  child: Text(
+                    'Tivemos um problema, tente novamente mais tarde!',
+                  ),
+                );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Text('Loading');
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: snapshot.connectionState.index.toDouble() / 2.0,
+                  ),
+                );
+              } else if (snapshot.data.docs.isEmpty) {
+                return const Center(
+                  child: Text('Nenhuma frase encontrada!'),
+                );
               } else {
                 data = snapshot.data.docs
                     .map<PhrasesModel>(
@@ -55,13 +75,6 @@ class DailyPhrasesPage extends StatelessWidget {
           ),
         )
       ],
-      onFABPressed: () {
-        FirebaseService().addPhrase(
-          author: 'test',
-          description: 'super test ${data.length.toString()}',
-          id: data.length + 1,
-        );
-      },
     );
   }
 }

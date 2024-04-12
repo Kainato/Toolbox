@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
+import 'package:toolbox/functions/NavigatorPush.dart';
 import 'package:toolbox/pages/BitcoinPrices.dart';
-import 'package:toolbox/pages/DailyPhrasesPage.dart';
+import 'package:toolbox/pages/Phrases/DailyPhrasesPage.dart';
 import 'package:toolbox/pages/HomePage.dart';
 import 'package:toolbox/widgets/components/DrawerListTile.dart';
 
@@ -37,15 +38,13 @@ class DrawerBase extends StatelessWidget {
             title: 'Home Page',
             icon: Icons.home,
             onTap: () {
-              Navigator.pop(context);
+              ToolBoxNavigator.pop(context);
               if (currentPage == DrawerItens.home) {
                 return;
               } else {
-                Navigator.push(
+                ToolBoxNavigator.push(
                   context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const HomePage(),
-                  ),
+                  const HomePage(),
                 );
               }
             },
@@ -56,15 +55,13 @@ class DrawerBase extends StatelessWidget {
             title: 'Bitcoin Prices',
             icon: Icons.monetization_on,
             onTap: () {
-              Navigator.pop(context);
+              ToolBoxNavigator.pop(context);
               if (currentPage == DrawerItens.bitcoin) {
                 return;
               } else {
-                Navigator.push(
+                ToolBoxNavigator.push(
                   context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const BitcoinPrices(),
-                  ),
+                  const BitcoinPrices(),
                 );
               }
             },
@@ -75,15 +72,13 @@ class DrawerBase extends StatelessWidget {
             title: 'Daily Phrases',
             icon: Icons.article,
             onTap: () {
-              Navigator.pop(context);
+              ToolBoxNavigator.pop(context);
               if (currentPage == DrawerItens.phrases) {
                 return;
               } else {
-                Navigator.push(
+                ToolBoxNavigator.push(
                   context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const DailyPhrasesPage(),
-                  ),
+                  const DailyPhrasesPage(),
                 );
               }
             },

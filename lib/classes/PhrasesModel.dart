@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class PhrasesModel {
   String author;
   String description;
-  int id;
+  String id;
   Timestamp? createdAt;
   Map json;
 
