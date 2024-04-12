@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/BitcoinModel.dart';
+import 'package:toolbox/classes/Models/BitcoinModel.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
 import 'package:toolbox/widgets/components/TransparentDivider.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';

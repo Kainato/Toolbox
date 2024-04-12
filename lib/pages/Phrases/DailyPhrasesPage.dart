@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:toolbox/classes/ToolBoxNavigator.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/classes/PhrasesModel.dart';
+import 'package:toolbox/classes/Models/PhrasesModel.dart';
 import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/functions/NavigatorPush.dart';
 import 'package:toolbox/pages/Phrases/CreateDailyPhrasesPage.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 

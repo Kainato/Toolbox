@@ -1,10 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
 import 'package:flutter/material.dart';
 
 class ToolBoxNavigator {
-  final int millisecondsDuration = 400;
 
-  void push(
+  static void push(
     BuildContext context,
     Widget page,
   ) {
@@ -12,14 +10,14 @@ class ToolBoxNavigator {
       context,
       PageRouteBuilder(
         pageBuilder: (_, __, ___) => page,
-        transitionDuration: Duration(milliseconds: millisecondsDuration),
+        transitionDuration: const Duration(milliseconds: 400),
         transitionsBuilder: (_, a, __, c) =>
             FadeTransition(opacity: a, child: c),
       ),
     );
   }
 
-  void pushReplacement(
+  static void pushReplacement(
     BuildContext context,
     Widget page,
   ) {
@@ -27,14 +25,14 @@ class ToolBoxNavigator {
       context,
       PageRouteBuilder(
         pageBuilder: (_, __, ___) => page,
-        transitionDuration: Duration(milliseconds: millisecondsDuration),
+        transitionDuration: const Duration(milliseconds: 400),
         transitionsBuilder: (_, a, __, c) =>
             FadeTransition(opacity: a, child: c),
       ),
     );
   }
 
-  void pushAndRemoveUntil(
+  static void pushAndRemoveUntil(
     BuildContext context,
     Widget page,
   ) {
@@ -42,7 +40,7 @@ class ToolBoxNavigator {
       context,
       PageRouteBuilder(
         pageBuilder: (_, __, ___) => page,
-        transitionDuration: Duration(milliseconds: millisecondsDuration),
+        transitionDuration: const Duration(milliseconds: 400),
         transitionsBuilder: (_, a, __, c) =>
             FadeTransition(opacity: a, child: c),
       ),

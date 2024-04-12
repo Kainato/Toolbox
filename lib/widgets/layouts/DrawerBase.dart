@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/functions/NavigatorPush.dart';
+import 'package:toolbox/classes/ToolBoxNavigator.dart';
 import 'package:toolbox/pages/BitcoinPrices.dart';
 import 'package:toolbox/pages/Phrases/DailyPhrasesPage.dart';
 import 'package:toolbox/pages/HomePage.dart';
