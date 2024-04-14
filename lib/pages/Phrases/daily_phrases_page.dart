@@ -15,15 +15,14 @@ class DailyPhrasesPage extends StatelessWidget {
     List<PhrasesModel> data = [];
     return BackgroundPage(
       currentPage: DrawerItens.phrases,
-      title: 'Daily Phrases Page',
+      title: 'Frases do dia',
+      fabTooltip: 'Adicionar frase',
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
-      onFABPressed: () {
-        ToolBoxNavigator.push(
-          context,
-          const CreateDailyPhrasesPage(),
-        );
-      },
+      onFABPressed: () => ToolBoxNavigator.push(
+        context,
+        const CreateDailyPhrasesPage(),
+      ),
       children: [
         Flexible(
           child: StreamBuilder<QuerySnapshot<Object?>>(
@@ -36,10 +35,8 @@ class DailyPhrasesPage extends StatelessWidget {
                   ),
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: snapshot.connectionState.index.toDouble() / 2.0,
-                  ),
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else if (snapshot.data.docs.isEmpty) {
                 return const Center(
@@ -52,19 +49,24 @@ class DailyPhrasesPage extends StatelessWidget {
                     .toList();
                 return ListView.builder(
                   itemCount: data.length,
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(
-                        data[index].description,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        '${data[index].author.toString()}\n${data[index].id.toString()}',
-                      ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () =>
-                            FirebaseService().deletePhrase(data[index].id),
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: ListTile(
+                        title: Text(
+                          data[index].description,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          '${data[index].author.toString()}\n${data[index].id.toString()}',
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () =>
+                              FirebaseService().deletePhrase(data[index].id),
+                        ),
                       ),
                     );
                   },

@@ -5,6 +5,6 @@ linter:
     - file_names
     - flutter_style_todos
 
-analyzer:
-  exclude:
-    - "**/*"
+# analyzer:
+#   exclude:
+#     - "**/*"

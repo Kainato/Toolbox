@@ -17,6 +17,7 @@ class DrawerBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      surfaceTintColor: Theme.of(context).colorScheme.primary,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -34,14 +35,14 @@ class DrawerBase extends StatelessWidget {
           DrawerListTile(
             pageFromDrawer: currentPage,
             drawerItem: DrawerItens.home,
-            title: 'Home Page',
+            title: 'Página Inicial',
             icon: Icons.home,
             onTap: () {
               ToolBoxNavigator.pop(context);
               if (currentPage == DrawerItens.home) {
                 return;
               } else {
-                ToolBoxNavigator.push(
+                ToolBoxNavigator.pushAndRemoveUntil(
                   context,
                   const HomePage(),
                 );
@@ -51,7 +52,7 @@ class DrawerBase extends StatelessWidget {
           DrawerListTile(
             pageFromDrawer: currentPage,
             drawerItem: DrawerItens.bitcoin,
-            title: 'Bitcoin Prices',
+            title: 'Preço do Bitcoin',
             icon: Icons.monetization_on,
             onTap: () {
               ToolBoxNavigator.pop(context);
@@ -60,7 +61,7 @@ class DrawerBase extends StatelessWidget {
               } else {
                 ToolBoxNavigator.push(
                   context,
-                  const BitcoinPrices(),
+                  const BitcoinPricesPage(),
                 );
               }
             },
@@ -68,7 +69,7 @@ class DrawerBase extends StatelessWidget {
           DrawerListTile(
             pageFromDrawer: currentPage,
             drawerItem: DrawerItens.phrases,
-            title: 'Daily Phrases',
+            title: 'Frases do Dia',
             icon: Icons.article,
             onTap: () {
               ToolBoxNavigator.pop(context);

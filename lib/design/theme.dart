@@ -27,6 +27,9 @@ final ThemeData theme = ThemeData(
     color: Colors.white,
     shadowColor: Colors.black,
     elevation: 1.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
   ),
   listTileTheme: const ListTileThemeData(
     visualDensity: VisualDensity.comfortable,
@@ -35,6 +38,9 @@ final ThemeData theme = ThemeData(
     iconColor: Colors.black,
     textColor: Colors.black,
     mouseCursor: MaterialStateMouseCursor.clickable,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Colors.pink,

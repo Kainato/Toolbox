@@ -11,6 +11,8 @@ class BackgroundPage extends StatefulWidget {
   final MainAxisSize mainAxisSize;
   final DrawerItens? currentPage;
   final void Function()? onFABPressed;
+  final String fabTooltip;
+  final IconData? fabIcon;
 
   const BackgroundPage({
     super.key,
@@ -21,6 +23,8 @@ class BackgroundPage extends StatefulWidget {
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
     this.onFABPressed,
+    this.fabTooltip = '',
+    this.fabIcon,
   });
 
   @override
@@ -35,20 +39,35 @@ class _BackgroundPageState extends State<BackgroundPage> {
   MainAxisSize get mainAxisSize => widget.mainAxisSize;
   DrawerItens? get currentPage => widget.currentPage;
   void Function()? get onFABPressed => widget.onFABPressed;
+  String get fabTooltip => widget.fabTooltip;
+  IconData get fabIcon => widget.fabIcon ?? Icons.add;
 
   @override
   Widget build(BuildContext context) {
     bool hasDrawer = currentPage != null;
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        elevation: 0,
+        title: Text(
+          title,
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+        ),
         leading: !hasDrawer
             ? IconButton(
                 icon: const Icon(Icons.arrow_back_ios_new_rounded),
                 onPressed: () => ToolBoxNavigator.pop(context),
               )
             : null,
+        actionsIconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        iconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.primary,
+        ),
       ),
+      drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+      backgroundColor: Theme.of(context).colorScheme.background,
       drawer: hasDrawer
           ? DrawerBase(
               currentPage: currentPage!,
@@ -70,12 +89,10 @@ class _BackgroundPageState extends State<BackgroundPage> {
       ),
       floatingActionButton: Visibility(
         visible: onFABPressed != null,
-        child: FloatingActionButton.extended(
-          tooltip: 'Increment',
-          label: const Text('Increment'),
-          icon: const Icon(Icons.add),
-          isExtended: false,
+        child: FloatingActionButton(
+          tooltip: fabTooltip,
           onPressed: onFABPressed,
+          child: Icon(fabIcon),
         ),
       ),
     );
