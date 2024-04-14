@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/enums/drawer_itens.dart';
-import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/classes/ToolBoxNavigator.dart';
+import 'package:toolbox/enums/DrawerItens.dart';
 import 'package:toolbox/pages/bitcoin_prices.dart';
 import 'package:toolbox/pages/Phrases/daily_phrases_page.dart';
 import 'package:toolbox/pages/home_page.dart';
