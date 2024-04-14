@@ -1,7 +1,6 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/ToolBoxNavigator.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/widgets/layouts/DrawerBase.dart';
 
 class BackgroundPage extends StatefulWidget {

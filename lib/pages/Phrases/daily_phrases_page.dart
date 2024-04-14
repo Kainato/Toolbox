@@ -1,11 +1,10 @@
-// ignore_for_file: file_names
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/ToolBoxNavigator.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/classes/Models/PhrasesModel.dart';
 import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/pages/Phrases/CreateDailyPhrasesPage.dart';
+import 'package:toolbox/pages/Phrases/create_daily_phrases_page.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 
 class DailyPhrasesPage extends StatelessWidget {

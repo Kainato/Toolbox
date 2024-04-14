@@ -1,4 +1,3 @@
-// ignore_for_file: file_names
 class BitcoinModel {
   Map<String, dynamic> brl;
   Map<String, dynamic> json;
