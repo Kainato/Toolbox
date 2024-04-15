@@ -11,12 +11,14 @@ class FirebaseService {
   Future<void> addPhrase({
     required String author,
     required String description,
+    required String source,
     required String id,
   }) async {
     await phrasesCollection.doc(id.toString()).set(
       {
         'author': author,
         'description': description,
+        'source': source,
         'createdAt': FieldValue.serverTimestamp(),
         'id': id,
       },

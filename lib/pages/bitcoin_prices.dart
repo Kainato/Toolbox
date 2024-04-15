@@ -21,7 +21,7 @@ class _BitcoinPricesPageState extends State<BitcoinPricesPage> {
   _recuperarPreco() async {
     // ROTA DE REQUISIÇÃO
     String url = 'https://blockchain.info/ticker';
-    setState(() => _preco = 'carregando...');
+    setState(() => _preco = '...');
 
     // REQUISIÇÃO
     // O GET VAI FAZER A CONSULTA NA WEB E PODE ACABAR DEMORANDO UM POUCO

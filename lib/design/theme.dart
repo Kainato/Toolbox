@@ -17,6 +17,37 @@ final ThemeData theme = ThemeData(
       fontFamily: GoogleFonts.quicksand().fontFamily,
     ),
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.pink),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.red),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.red),
+    ),
+    labelStyle: TextStyle(
+      color: Colors.grey,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+    hintStyle: TextStyle(
+      color: Colors.grey,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
     elevation: 0,

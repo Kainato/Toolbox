@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:toolbox/classes/ToolBoxNavigator.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/pages/Phrases/daily_phrases_page.dart';
+import 'package:toolbox/pages/Phrases/daily_quotes_page.dart';
 import 'package:toolbox/pages/bitcoin_prices.dart';
 import 'package:toolbox/widgets/components/CardGridTile.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';

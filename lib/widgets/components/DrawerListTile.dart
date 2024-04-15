@@ -24,7 +24,7 @@ class DrawerListTile extends StatelessWidget {
         : Theme.of(context).colorScheme.onSurface;
     Color selectedColorSurface = drawerItem == pageFromDrawer
         ? Theme.of(context).colorScheme.primary
-        : Theme.of(context).colorScheme.surface;
+        : Theme.of(context).colorScheme.surfaceVariant;
     return Card(
       color: selectedColorSurface,
       child: ListTile(
@@ -33,7 +33,10 @@ class DrawerListTile extends StatelessWidget {
         onTap: onTap,
         title: Text(
           title,
-          style: TextStyle(color: selectedColorOnSurface),
+          style: TextStyle(
+            color: selectedColorOnSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         leading: Icon(
           icon,

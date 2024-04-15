@@ -17,6 +17,37 @@ final ThemeData darkTheme = ThemeData(
       fontFamily: GoogleFonts.quicksand().fontFamily,
     ),
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Color(0xFFF48FB1)), // Colors.pink.shade200
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.red),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderSide: BorderSide(color: Colors.red),
+    ),
+    labelStyle: TextStyle(
+      color: Colors.grey,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+    hintStyle: TextStyle(
+      color: Colors.grey,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFF1E1E1E),
     elevation: 0,
@@ -27,6 +58,9 @@ final ThemeData darkTheme = ThemeData(
     color: Color(0xFF1E1E1E),
     shadowColor: Colors.black,
     elevation: 1.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
   ),
   listTileTheme: const ListTileThemeData(
     visualDensity: VisualDensity.comfortable,
@@ -35,6 +69,9 @@ final ThemeData darkTheme = ThemeData(
     iconColor: Colors.white,
     textColor: Colors.white,
     mouseCursor: MaterialStateMouseCursor.clickable,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    ),
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: Color(0xFFF48FB1), // Colors.pink.shade200

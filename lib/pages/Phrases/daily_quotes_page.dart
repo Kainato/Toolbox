@@ -1,10 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:toolbox/classes/ToolBoxNavigator.dart';
 import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/classes/Models/PhrasesModel.dart';
+import 'package:toolbox/classes/Models/QuotesModel.dart';
 import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/pages/Phrases/create_daily_phrases_page.dart';
+import 'package:toolbox/pages/Phrases/create_daily_quotes_page.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 
 class DailyPhrasesPage extends StatelessWidget {
@@ -55,18 +56,32 @@ class DailyPhrasesPage extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: ListTile(
-                        title: Text(
-                          data[index].description,
+                        title: AutoSizeText(
+                          '"${data[index].description}"',
                           style: const TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
                         ),
                         subtitle: Text(
-                          '${data[index].author.toString()}\n${data[index].id.toString()}',
+                          data[index].source == ''
+                              ? '~ ${data[index].author.toString()}'
+                              : '~ ${data[index].source.toString()}, ${data[index].author.toString()}',
+                          textAlign: TextAlign.end,
                         ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () =>
-                              FirebaseService().deletePhrase(data[index].id),
+                        leading: CircleAvatar(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          child: Text(
+                            (index + 1).toString(),
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface),
+                          ),
                         ),
+                        // trailing: IconButton(
+                        //   icon: const Icon(Icons.delete),
+                        //   onPressed: () =>
+                        //       FirebaseService().deletePhrase(data[index].id),
+                        // ),
                       ),
                     );
                   },

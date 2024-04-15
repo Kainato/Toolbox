@@ -66,25 +66,29 @@ class _BackgroundPageState extends State<BackgroundPage> {
           color: Theme.of(context).colorScheme.primary,
         ),
       ),
-      drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+      drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.25),
       backgroundColor: Theme.of(context).colorScheme.background,
       drawer: hasDrawer
           ? DrawerBase(
               currentPage: currentPage!,
             )
           : null,
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(
-          20,
-          20,
-          20,
-          8 + MediaQuery.of(context).padding.bottom,
-        ),
-        child: Column(
-          crossAxisAlignment: crossAxisAlignment,
-          mainAxisAlignment: mainAxisAlignment,
-          mainAxisSize: mainAxisSize,
-          children: children,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        behavior: HitTestBehavior.opaque,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+            20,
+            20,
+            20,
+            8 + MediaQuery.of(context).padding.bottom,
+          ),
+          child: Column(
+            crossAxisAlignment: crossAxisAlignment,
+            mainAxisAlignment: mainAxisAlignment,
+            mainAxisSize: mainAxisSize,
+            children: children,
+          ),
         ),
       ),
       floatingActionButton: Visibility(
