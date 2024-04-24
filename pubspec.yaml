@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   google_fonts: ^6.2.1
-  font_awesome_flutter: ^10.7.0
   flutter:
     sdk: flutter
   firebase_core: ^2.27.1

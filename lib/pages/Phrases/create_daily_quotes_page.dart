@@ -17,7 +17,8 @@ class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController sourceController = TextEditingController();
   final GlobalKey formKey = GlobalKey<FormState>();
-  bool desconhecido = false;
+  bool desconhecidoOrigem = false;
+  bool desconhecidoAuthor = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,23 +48,35 @@ class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
               const TransparentDivider(),
               TextFormField(
                 maxLength: 50,
+                enabled: !desconhecidoOrigem,
                 controller: sourceController,
                 decoration: const InputDecoration(
                   labelText: 'Inserir origem',
                   hintText: 'Digite a origem da citação',
                 ),
               ),
+              CheckboxListTile(
+                dense: true,
+                title: const Text('Origem desconhecida?'),
+                value: desconhecidoOrigem,
+                activeColor: Theme.of(context).colorScheme.secondary,
+                onChanged: (newValue) {
+                  desconhecidoOrigem = !desconhecidoOrigem;
+                  log(desconhecidoOrigem.toString());
+                  setState(() {});
+                },
+              ),
               const TransparentDivider(),
               TextFormField(
                 maxLength: 30,
-                enabled: !desconhecido,
+                enabled: !desconhecidoAuthor,
                 controller: authorController,
                 decoration: const InputDecoration(
                   labelText: 'Inserir autor',
                   hintText: 'Digite o autor da citação',
                 ),
                 validator: (value) {
-                  if (!desconhecido && (value == null || value == '')) {
+                  if (!desconhecidoAuthor && (value == null || value == '')) {
                     return 'Por favor, insira o autor da citação';
                   }
                   return null;
@@ -73,11 +86,11 @@ class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
               CheckboxListTile(
                 dense: true,
                 title: const Text('Autor desconhecido?'),
-                value: desconhecido,
+                value: desconhecidoAuthor,
                 activeColor: Theme.of(context).colorScheme.secondary,
                 onChanged: (newValue) {
-                  desconhecido = !desconhecido;
-                  log(desconhecido.toString());
+                  desconhecidoAuthor = !desconhecidoAuthor;
+                  log(desconhecidoAuthor.toString());
                   setState(() {});
                 },
               ),
@@ -90,10 +103,11 @@ class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
           try {
             FirebaseService()
                 .addPhrase(
-              author: desconhecido ? 'Desconhecido' : authorController.text,
+              author:
+                  desconhecidoAuthor ? 'Desconhecido' : authorController.text,
               description: descriptionController.text,
-              source: sourceController.text,
-              id: '${DateTime.now().millisecondsSinceEpoch.toString()}+${authorController.text}',
+              source: desconhecidoOrigem ? '' : sourceController.text,
+              id: '${DateTime.now().millisecondsSinceEpoch.toString()}+${desconhecidoAuthor ? 'Desconhecido' : authorController.text}',
             )
                 .whenComplete(
               () {

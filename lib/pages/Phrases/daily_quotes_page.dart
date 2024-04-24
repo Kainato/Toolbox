@@ -6,6 +6,7 @@ import 'package:toolbox/enums/DrawerItens.dart';
 import 'package:toolbox/classes/Models/QuotesModel.dart';
 import 'package:toolbox/firebase_service.dart';
 import 'package:toolbox/pages/Phrases/create_daily_quotes_page.dart';
+import 'package:toolbox/widgets/components/TransparentDivider.dart';
 import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
 
 class DailyPhrasesPage extends StatelessWidget {
@@ -30,10 +31,21 @@ class DailyPhrasesPage extends StatelessWidget {
             stream: FirebaseService().getPhrases(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               if (snapshot.hasError) {
-                return const Center(
-                  child: Text(
-                    'Tivemos um problema, tente novamente mais tarde!',
-                  ),
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const Text(
+                      'Tivemos um problema, tente novamente mais tarde!',
+                      textAlign: TextAlign.center,
+                    ),
+                    const TransparentDivider(),
+                    Text(
+                      snapshot.error.toString(),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
@@ -55,33 +67,85 @@ class DailyPhrasesPage extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      child: ListTile(
-                        title: AutoSizeText(
-                          '"${data[index].description}"',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                        ),
-                        subtitle: Text(
-                          data[index].source == ''
-                              ? '~ ${data[index].author.toString()}'
-                              : '~ ${data[index].source.toString()}, ${data[index].author.toString()}',
-                          textAlign: TextAlign.end,
-                        ),
-                        leading: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primary,
-                          child: Text(
-                            (index + 1).toString(),
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.onSurface),
+                      child: Dismissible(
+                        key: Key(data[index].id),
+                        direction: DismissDirection.startToEnd,
+                        confirmDismiss: (direction) async {
+                          final messenger = ScaffoldMessenger.of(context);
+                          await showDialog(
+                            context: context,
+                            builder: (BuildContext dialogContext) {
+                              return AlertDialog(
+                                title: const Text('Atenção!'),
+                                content: const Text(
+                                  'Deseja realmente excluir esta frase?',
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.of(dialogContext).pop(),
+                                    child: const Text('Cancelar'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(dialogContext).pop(true);
+                                    },
+                                    child: const Text('Excluir'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ).whenComplete(
+                            () => messenger.showSnackBar(
+                              SnackBar(
+                                content: const Text('Frase excluída!'),
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
+                              ),
+                            ),
+                          );
+                          return true;
+                        },
+                        onDismissed: (direction) =>
+                            FirebaseService().deletePhrase(data[index].id),
+                        background: Container(
+                          color: Theme.of(context).colorScheme.error,
+                          child: const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 16.0),
+                              child: Icon(
+                                Icons.delete,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
-                        // trailing: IconButton(
-                        //   icon: const Icon(Icons.delete),
-                        //   onPressed: () =>
-                        //       FirebaseService().deletePhrase(data[index].id),
-                        // ),
+                        child: ListTile(
+                          title: AutoSizeText(
+                            '"${data[index].description}"',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start,
+                            maxLines: 2,
+                          ),
+                          subtitle: Text(
+                            data[index].source == ''
+                                ? '~ ${data[index].author.toString()}'
+                                : '~ ${data[index].source.toString()}, ${data[index].author.toString()}',
+                            textAlign: TextAlign.end,
+                          ),
+                          leading: CircleAvatar(
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            child: Text(
+                              (index + 1).toString(),
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     );
                   },
