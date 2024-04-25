@@ -1,7 +1,7 @@
-enum DrawerItens {
+enum DrawerKeys {
   home,
   bitcoin,
-  phrases,
+  quotes,
   profile,
   settings,
   logout,

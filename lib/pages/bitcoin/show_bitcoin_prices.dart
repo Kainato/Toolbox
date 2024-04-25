@@ -1,21 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:toolbox/classes/Models/BitcoinModel.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/widgets/components/TransparentDivider.dart';
-import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
+import 'package:toolbox/classes/Models/bitcoin_model.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/widgets/components/transparent_divider.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class BitcoinPricesPage extends StatefulWidget {
-  const BitcoinPricesPage({super.key});
+class ShowBitcoinPrices extends StatefulWidget {
+  const ShowBitcoinPrices({super.key});
 
   @override
-  State<BitcoinPricesPage> createState() => _BitcoinPricesPageState();
+  State<ShowBitcoinPrices> createState() => _ShowBitcoinPricesState();
 }
 
-class _BitcoinPricesPageState extends State<BitcoinPricesPage> {
+class _ShowBitcoinPricesState extends State<ShowBitcoinPrices> {
   String _preco = '0.00';
 
   _recuperarPreco() async {
@@ -55,8 +53,8 @@ class _BitcoinPricesPageState extends State<BitcoinPricesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundPage(
-      currentPage: DrawerItens.bitcoin,
+    return BackgroundView(
+      currentPage: DrawerKeys.bitcoin,
       title: 'Preço do Bitcoin',
       fabIcon: Icons.refresh,
       fabTooltip: 'Atualizar Preço',

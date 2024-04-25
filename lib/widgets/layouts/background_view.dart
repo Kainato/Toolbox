@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/ToolBoxNavigator.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/widgets/layouts/DrawerBase.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/widgets/layouts/drawer_view.dart';
 
-class BackgroundPage extends StatefulWidget {
+class BackgroundView extends StatefulWidget {
   final String title;
   final List<Widget> children;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
   final MainAxisSize mainAxisSize;
-  final DrawerItens? currentPage;
+  final DrawerKeys? currentPage;
   final void Function()? onFABPressed;
   final String fabTooltip;
   final IconData? fabIcon;
 
-  const BackgroundPage({
+  const BackgroundView({
     super.key,
     required this.title,
     required this.children,
@@ -28,16 +28,16 @@ class BackgroundPage extends StatefulWidget {
   });
 
   @override
-  State<BackgroundPage> createState() => _BackgroundPageState();
+  State<BackgroundView> createState() => _BackgroundViewState();
 }
 
-class _BackgroundPageState extends State<BackgroundPage> {
+class _BackgroundViewState extends State<BackgroundView> {
   String get title => widget.title;
   List<Widget> get children => widget.children;
   CrossAxisAlignment get crossAxisAlignment => widget.crossAxisAlignment;
   MainAxisAlignment get mainAxisAlignment => widget.mainAxisAlignment;
   MainAxisSize get mainAxisSize => widget.mainAxisSize;
-  DrawerItens? get currentPage => widget.currentPage;
+  DrawerKeys? get currentPage => widget.currentPage;
   void Function()? get onFABPressed => widget.onFABPressed;
   String get fabTooltip => widget.fabTooltip;
   IconData get fabIcon => widget.fabIcon ?? Icons.add;
@@ -69,7 +69,7 @@ class _BackgroundPageState extends State<BackgroundPage> {
       drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.25),
       backgroundColor: Theme.of(context).colorScheme.background,
       drawer: hasDrawer
-          ? DrawerBase(
+          ? DrawerView(
               currentPage: currentPage!,
             )
           : null,

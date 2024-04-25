@@ -10,7 +10,7 @@ class CardGridTile extends StatelessWidget {
     super.key,
     required this.child,
     required this.footer,
-    this.onTap, 
+    this.onTap,
     this.gridColor,
   });
 

@@ -2,17 +2,17 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/widgets/components/TransparentDivider.dart';
-import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
+import 'package:toolbox/widgets/components/transparent_divider.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
 
-class CreateDailyPhrasesPage extends StatefulWidget {
-  const CreateDailyPhrasesPage({super.key});
+class CreateDailyQuotes extends StatefulWidget {
+  const CreateDailyQuotes({super.key});
 
   @override
-  State<CreateDailyPhrasesPage> createState() => _CreateDailyPhrasesPageState();
+  State<CreateDailyQuotes> createState() => _CreateDailyQuotesState();
 }
 
-class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
+class _CreateDailyQuotesState extends State<CreateDailyQuotes> {
   TextEditingController authorController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController sourceController = TextEditingController();
@@ -22,7 +22,7 @@ class _CreateDailyPhrasesPageState extends State<CreateDailyPhrasesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundPage(
+    return BackgroundView(
       title: 'Criar citação',
       fabIcon: Icons.save,
       children: [

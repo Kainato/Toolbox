@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:toolbox/classes/ToolBoxNavigator.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/pages/Phrases/daily_quotes_page.dart';
-import 'package:toolbox/pages/bitcoin_prices.dart';
-import 'package:toolbox/widgets/components/CardGridTile.dart';
-import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
+import 'package:toolbox/pages/quotes/list_daily_quotes.dart';
+import 'package:toolbox/widgets/components/card_grid_tile.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundPage(
-      currentPage: DrawerItens.home,
+    return BackgroundView(
+      currentPage: DrawerKeys.home,
       title: 'Home Page',
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,13 +25,13 @@ class HomePage extends StatelessWidget {
                 context,
                 title: 'Preço do Bitcoin',
                 icon: Icons.monetization_on_rounded,
-                page: const BitcoinPricesPage(),
+                page: const ShowBitcoinPrices(),
               ),
               _gridItensBase(
                 context,
                 title: 'Frases do Dia',
                 icon: Icons.chat,
-                page: const DailyPhrasesPage(),
+                page: const ListDailyQuotes(),
               ),
             ],
           ),

@@ -1,29 +1,29 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/ToolBoxNavigator.dart';
-import 'package:toolbox/enums/DrawerItens.dart';
-import 'package:toolbox/classes/Models/QuotesModel.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/classes/Models/quotes_model.dart';
 import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/pages/Phrases/create_daily_quotes_page.dart';
-import 'package:toolbox/widgets/components/TransparentDivider.dart';
-import 'package:toolbox/widgets/layouts/BackgroundPage.dart';
+import 'package:toolbox/pages/quotes/create_daily_quotes.dart';
+import 'package:toolbox/widgets/components/transparent_divider.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
 
-class DailyPhrasesPage extends StatelessWidget {
-  const DailyPhrasesPage({super.key});
+class ListDailyQuotes extends StatelessWidget {
+  const ListDailyQuotes({super.key});
 
   @override
   Widget build(BuildContext context) {
     List<PhrasesModel> data = [];
-    return BackgroundPage(
-      currentPage: DrawerItens.phrases,
+    return BackgroundView(
+      currentPage: DrawerKeys.quotes,
       title: 'Frases do dia',
       fabTooltip: 'Adicionar frase',
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       onFABPressed: () => ToolBoxNavigator.push(
         context,
-        const CreateDailyPhrasesPage(),
+        const CreateDailyQuotes(),
       ),
       children: [
         Flexible(
