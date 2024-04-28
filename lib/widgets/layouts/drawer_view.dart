@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
 import 'package:toolbox/pages/home_page.dart';
-import 'package:toolbox/pages/quotes/list_daily_quotes.dart';
+import 'package:toolbox/pages/quotes/show_quotes.dart';
 import 'package:toolbox/widgets/components/drawer_list_tile.dart';
 
 class DrawerView extends StatelessWidget {
@@ -65,10 +65,10 @@ class DrawerView extends StatelessWidget {
                   ),
                   DrawerListTile(
                     currentPage: currentPage,
-                    title: 'Frases do Dia',
+                    title: 'Citações',
                     drawerKey: DrawerKeys.quotes,
                     icon: Icons.chat,
-                    page: const ListDailyQuotes(),
+                    page: const ShowDailyQuotes(),
                   ),
                 ],
               ),

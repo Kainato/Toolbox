@@ -89,7 +89,7 @@ final ThemeData darkTheme = ThemeData(
     secondary: Color(0xFF8ff4d2), // Colors.green.shade200
     onSecondary: Colors.white,
     secondaryContainer: Color(0xFF1ee9a5),
-    onSecondaryContainer: Colors.white,
+    onSecondaryContainer: Colors.black,
     // Tertiary Colors
     tertiary: Color(0xFF90CAF9), // Colors.blue.shade200
     onTertiary: Colors.black,

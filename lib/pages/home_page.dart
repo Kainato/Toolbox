@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toolbox/classes/toolbox_navigator.dart';
 import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
-import 'package:toolbox/pages/quotes/list_daily_quotes.dart';
+import 'package:toolbox/pages/quotes/show_quotes.dart';
 import 'package:toolbox/widgets/components/card_grid_tile.dart';
 import 'package:toolbox/widgets/layouts/background_view.dart';
 
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundView(
       currentPage: DrawerKeys.home,
-      title: 'Home Page',
+      title: 'Página Inicial',
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -29,9 +29,9 @@ class HomePage extends StatelessWidget {
               ),
               _gridItensBase(
                 context,
-                title: 'Frases do Dia',
+                title: 'Citações',
                 icon: Icons.chat,
-                page: const ListDailyQuotes(),
+                page: const ShowDailyQuotes(),
               ),
             ],
           ),

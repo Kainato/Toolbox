@@ -13,6 +13,7 @@ class BackgroundView extends StatefulWidget {
   final void Function()? onFABPressed;
   final String fabTooltip;
   final IconData? fabIcon;
+  final List<Widget>? actions;
 
   const BackgroundView({
     super.key,
@@ -25,6 +26,7 @@ class BackgroundView extends StatefulWidget {
     this.onFABPressed,
     this.fabTooltip = '',
     this.fabIcon,
+    this.actions,
   });
 
   @override
@@ -40,6 +42,7 @@ class _BackgroundViewState extends State<BackgroundView> {
   DrawerKeys? get currentPage => widget.currentPage;
   void Function()? get onFABPressed => widget.onFABPressed;
   String get fabTooltip => widget.fabTooltip;
+  List<Widget>? get actions => widget.actions;
   IconData get fabIcon => widget.fabIcon ?? Icons.add;
 
   @override
@@ -59,6 +62,7 @@ class _BackgroundViewState extends State<BackgroundView> {
                 onPressed: () => ToolBoxNavigator.pop(context),
               )
             : null,
+        actions: actions,
         actionsIconTheme: IconThemeData(
           color: Theme.of(context).colorScheme.primary,
         ),
@@ -66,6 +70,7 @@ class _BackgroundViewState extends State<BackgroundView> {
           color: Theme.of(context).colorScheme.primary,
         ),
       ),
+      resizeToAvoidBottomInset: true,
       drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.25),
       backgroundColor: Theme.of(context).colorScheme.background,
       drawer: hasDrawer
@@ -77,12 +82,7 @@ class _BackgroundViewState extends State<BackgroundView> {
         onTap: () => FocusScope.of(context).unfocus(),
         behavior: HitTestBehavior.opaque,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            20,
-            20,
-            20,
-            8 + MediaQuery.of(context).padding.bottom,
-          ),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             mainAxisAlignment: mainAxisAlignment,
