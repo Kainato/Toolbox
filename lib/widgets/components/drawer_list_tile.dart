@@ -4,17 +4,15 @@ import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/widgets/components/card_list_tile.dart';
 
 class DrawerListTile extends StatelessWidget {
-  /// O título do item do drawer que será exibido no centro do ListTile
+  /// O título do item do drawer que será exibido no centro no ListTile
   /// que está sendo utilizado para exibir o item do drawer.
   /// ## Atributos
-  /// * Obrigatório
   /// * Tipo `String`
   final String title;
 
-  /// O ícone do item do drawer que será exibido na esquerda do ListTile
+  /// O ícone do item do drawer que será exibido na esquerda no ListTile
   /// que está sendo utilizado para exibir o item do drawer.
   /// ## Atributos
-  /// * Obrigatório
   /// * Tipo `IconData`
   final IconData icon;
 
@@ -22,7 +20,6 @@ class DrawerListTile extends StatelessWidget {
   /// item do drawer se trata. Ela também é utilizada para definir
   /// a cor do texto e do ícone do item do drawer.
   /// ## Atributos
-  /// * Obrigatório
   /// * Tipo `DrawerItens` - Veja mais em [DrawerKeys]
   final DrawerKeys drawerKey;
 
@@ -30,16 +27,23 @@ class DrawerListTile extends StatelessWidget {
   /// Ela é definida no construtor do DrawerView que vem da BackgroundPageView
   /// e é utilizada para definir a cor do texto e do ícone do item do drawer.
   /// ## Atributos
-  /// * Obrigatório
   /// * Tipo `DrawerItens` - Veja mais em [DrawerKeys]
   final DrawerKeys currentPage;
 
   /// A página que será aberta ao clicar no item do drawer.
   /// ## Atributos
-  /// * Obrigatório
   /// * Tipo `Widget`
   final Widget page;
 
+  /// O principal construtor de cada item do drawer. Ele recebe todos os
+  /// atributos necessários de um [ListTile](www.youtube.com/watch?v=l8dj0yPBvgQ) e os utiliza para criar um
+  /// item do drawer personalizado.
+  /// ### Parâmetros
+  /// * title: `String` - O título do item do drawer.
+  /// * icon: `IconData` - O ícone do item do drawer.
+  /// * drawerKey: `DrawerKeys` - A chave do item do drawer.
+  /// * currentPage: `DrawerKeys` - A página atual da aplicação.
+  /// * page: `Widget` - A página que será aberta ao clicar no item do drawer.
   const DrawerListTile({
     super.key,
     required this.title,
