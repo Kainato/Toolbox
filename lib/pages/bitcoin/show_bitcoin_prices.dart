@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/Models/bitcoin_model.dart';
-import 'package:toolbox/enums/drawer_itens.dart';
-import 'package:toolbox/widgets/components/transparent_divider.dart';
-import 'package:toolbox/widgets/layouts/background_view.dart';
+import 'package:Toolbox/classes/Models/bitcoin_model.dart';
+import 'package:Toolbox/enums/drawer_itens.dart';
+import 'package:Toolbox/widgets/components/transparent_divider.dart';
+import 'package:Toolbox/widgets/layouts/background_view.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

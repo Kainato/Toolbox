@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/enums/drawer_itens.dart';
-import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
-import 'package:toolbox/pages/home_page.dart';
-import 'package:toolbox/pages/quotes/show_quotes.dart';
-import 'package:toolbox/widgets/components/drawer_list_tile.dart';
+import 'package:Toolbox/enums/drawer_itens.dart';
+import 'package:Toolbox/pages/bitcoin/show_bitcoin_prices.dart';
+import 'package:Toolbox/pages/home_page.dart';
+import 'package:Toolbox/pages/quotes/show_quotes.dart';
+import 'package:Toolbox/widgets/components/drawer_list_tile.dart';
 
 class DrawerView extends StatelessWidget {
   final DrawerKeys currentPage;
@@ -27,7 +27,7 @@ class DrawerView extends StatelessWidget {
             child: const ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
-                'ToolBox',
+                'Toolbox',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

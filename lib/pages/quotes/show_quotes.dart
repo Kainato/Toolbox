@@ -3,14 +3,14 @@ import 'dart:developer' as developer;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/Models/quotes_model.dart';
-import 'package:toolbox/classes/toolbox_config.dart';
-import 'package:toolbox/classes/toolbox_navigator.dart';
-import 'package:toolbox/enums/drawer_itens.dart';
-import 'package:toolbox/firebase_service.dart';
-import 'package:toolbox/pages/quotes/list_quotes.dart';
-import 'package:toolbox/widgets/components/transparent_divider.dart';
-import 'package:toolbox/widgets/layouts/background_view.dart';
+import 'package:Toolbox/classes/Models/quotes_model.dart';
+import 'package:Toolbox/classes/toolbox_config.dart';
+import 'package:Toolbox/classes/toolbox_navigator.dart';
+import 'package:Toolbox/enums/drawer_itens.dart';
+import 'package:Toolbox/firebase_service.dart';
+import 'package:Toolbox/pages/quotes/list_quotes.dart';
+import 'package:Toolbox/widgets/components/transparent_divider.dart';
+import 'package:Toolbox/widgets/layouts/background_view.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ShowDailyQuotes extends StatefulWidget {

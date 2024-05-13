@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toolbox/classes/toolbox_navigator.dart';
-import 'package:toolbox/enums/drawer_itens.dart';
-import 'package:toolbox/widgets/layouts/drawer_view.dart';
+import 'package:Toolbox/classes/toolbox_navigator.dart';
+import 'package:Toolbox/enums/drawer_itens.dart';
+import 'package:Toolbox/widgets/layouts/drawer_view.dart';
 
 class BackgroundView extends StatefulWidget {
   final String title;
