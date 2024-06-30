@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:Toolbox/classes/toolbox_config.dart';
-import 'package:Toolbox/firebase_service.dart';
-import 'package:Toolbox/widgets/components/transparent_divider.dart';
-import 'package:Toolbox/widgets/layouts/background_view.dart';
+import 'package:toolbox/classes/toolbox_config.dart';
+import 'package:toolbox/firebase_service.dart';
+import 'package:toolbox/widgets/components/transparent_divider.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
 
 class CreateDailyQuotes extends StatefulWidget {
   const CreateDailyQuotes({super.key});

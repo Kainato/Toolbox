@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:Toolbox/classes/toolbox_navigator.dart';
-import 'package:Toolbox/enums/drawer_itens.dart';
-import 'package:Toolbox/widgets/components/card_list_tile.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/widgets/components/card_list_tile.dart';
 
 class DrawerListTile extends StatelessWidget {
   /// O título do item do drawer que será exibido no centro no ListTile
@@ -60,7 +60,7 @@ class DrawerListTile extends StatelessWidget {
         : Theme.of(context).colorScheme.onSurface;
     Color selectedColorSurface = drawerKey == currentPage
         ? Theme.of(context).colorScheme.primary
-        : Theme.of(context).colorScheme.surfaceVariant;
+        : Theme.of(context).colorScheme.surfaceContainerHighest;
     return CardListTile(
       title: title,
       titleColor: selectedColorOnSurface,

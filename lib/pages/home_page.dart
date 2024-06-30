@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:Toolbox/enums/drawer_itens.dart';
-import 'package:Toolbox/pages/bitcoin/show_bitcoin_prices.dart';
-import 'package:Toolbox/pages/quotes/show_quotes.dart';
-import 'package:Toolbox/widgets/components/card_grid_tile.dart';
-import 'package:Toolbox/widgets/layouts/background_view.dart';
-import 'package:Toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
+import 'package:toolbox/pages/quotes/show_quotes.dart';
+import 'package:toolbox/widgets/components/card_grid_tile.dart';
+import 'package:toolbox/widgets/layouts/background_view.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

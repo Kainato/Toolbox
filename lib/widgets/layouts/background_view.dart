@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:Toolbox/classes/toolbox_navigator.dart';
-import 'package:Toolbox/enums/drawer_itens.dart';
-import 'package:Toolbox/widgets/layouts/drawer_view.dart';
+import 'package:toolbox/classes/toolbox_navigator.dart';
+import 'package:toolbox/enums/drawer_itens.dart';
+import 'package:toolbox/widgets/layouts/drawer_view.dart';
 
 class BackgroundView extends StatefulWidget {
   final String title;
@@ -50,7 +50,7 @@ class _BackgroundViewState extends State<BackgroundView> {
     bool hasDrawer = currentPage != null;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
         title: Text(
           title,
@@ -72,7 +72,7 @@ class _BackgroundViewState extends State<BackgroundView> {
       ),
       resizeToAvoidBottomInset: true,
       drawerScrimColor: Theme.of(context).colorScheme.primary.withOpacity(0.25),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       drawer: hasDrawer
           ? DrawerView(
               currentPage: currentPage!,

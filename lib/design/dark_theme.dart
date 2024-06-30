@@ -68,7 +68,6 @@ final ThemeData darkTheme = ThemeData(
     selectedTileColor: Colors.grey,
     iconColor: Colors.white,
     textColor: Colors.white,
-    mouseCursor: MaterialStateMouseCursor.clickable,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(20.0)),
     ),
@@ -106,11 +105,8 @@ final ThemeData darkTheme = ThemeData(
     onSurface: Colors.white,
     inverseSurface: Colors.white,
     onInverseSurface: Colors.black,
-    surfaceVariant: Color(0xFF1E1E1E),
+    surfaceContainerHighest: Color(0xFF1E1E1E),
     onSurfaceVariant: Colors.white,
-    // Background Colors
-    background: Color(0xFF121212),
-    onBackground: Colors.white,
     // Outline Colors
     outline: Colors.black,
     outlineVariant: Color(0xFFEEEEEE), // Colors.grey[200],
