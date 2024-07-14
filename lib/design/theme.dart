@@ -6,6 +6,25 @@ final ThemeData theme = ThemeData(
   primaryColor: Colors.pink,
   dividerColor: Colors.grey[300],
   fontFamily: GoogleFonts.quicksand().fontFamily,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      textStyle: WidgetStateProperty.all(
+        TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          fontFamily: GoogleFonts.quicksand().fontFamily,
+        ),
+      ),
+      backgroundColor: WidgetStateProperty.all(Colors.pink),
+      elevation: WidgetStateProperty.all(3.0),
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    ),
+  ),
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.pink,
     elevation: 3,

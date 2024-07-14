@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
 import 'package:toolbox/pages/home_page.dart';
 import 'package:toolbox/pages/quotes/show_quotes.dart';
+import 'package:toolbox/services/auth_service.dart';
+import 'package:toolbox/widgets/components/card_list_tile.dart';
 import 'package:toolbox/widgets/components/drawer_list_tile.dart';
+import 'package:toolbox/widgets/layouts/dialog_view.dart';
 
 class DrawerView extends StatelessWidget {
   final DrawerKeys currentPage;
@@ -56,6 +60,7 @@ class DrawerView extends StatelessWidget {
                     icon: Icons.home,
                     page: const HomePage(),
                   ),
+                  Divider(color: Theme.of(context).colorScheme.onSurface),
                   DrawerListTile(
                     currentPage: currentPage,
                     title: 'Preço do Bitcoin',
@@ -70,6 +75,16 @@ class DrawerView extends StatelessWidget {
                     icon: Icons.chat,
                     page: const ShowDailyQuotes(),
                   ),
+                  Divider(color: Theme.of(context).colorScheme.onSurface),
+                  CardListTile(
+                    style: ListTileStyle.drawer,
+                    title: 'Sair',
+                    elevation: 0,
+                    listTileColor:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
+                    leading: const Icon(Icons.logout),
+                    onTap: () => _confirmLogout(context),
+                  ),
                 ],
               ),
             ),
@@ -77,5 +92,42 @@ class DrawerView extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+void _confirmLogout(BuildContext context) {
+  // Função para exibir um diálogo de confirmação de logout
+  showDialog(
+    context: context,
+    builder: (context) => DialogView(
+      title: 'Aviso!',
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+            _logout(context);
+          },
+          child: const Text('Sim, sair'),
+        ),
+      ],
+      children: const [
+        Text('Deseja realmente se desconectar e voltar para a tela de login?')
+      ],
+    ),
+  );
+}
+
+void _logout(BuildContext context) async {
+  try {
+    await context.read<AuthService>().logout(context);
+  } on AuthException catch (e) {
+    // Exibir mensagem de erro
+    context.mounted
+        ? ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(e.message),
+            ),
+          )
+        : null;
   }
 }

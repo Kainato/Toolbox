@@ -6,8 +6,19 @@ import 'package:toolbox/widgets/components/card_grid_tile.dart';
 import 'package:toolbox/widgets/layouts/background_view.dart';
 import 'package:toolbox/classes/toolbox_navigator.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
