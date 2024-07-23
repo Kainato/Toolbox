@@ -3,6 +3,7 @@ import 'package:toolbox/enums/drawer_itens.dart';
 import 'package:toolbox/pages/bitcoin/show_bitcoin_prices.dart';
 import 'package:toolbox/pages/quotes/show_quotes.dart';
 import 'package:toolbox/widgets/components/card_grid_tile.dart';
+import 'package:toolbox/widgets/functions/grid_width_items.dart';
 import 'package:toolbox/widgets/layouts/background_view.dart';
 import 'package:toolbox/classes/toolbox_navigator.dart';
 
@@ -29,8 +30,11 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Flexible(
-          child: GridView.count(
-            crossAxisCount: 2,
+          child: GridView(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: gridWidthItems(context),
+              mainAxisExtent: 250,
+            ),
             children: [
               _gridItensBase(
                 context,
